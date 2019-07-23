@@ -1,0 +1,14 @@
+{
+  "name": "oop-game-task",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Kiryl Stasevich <kirylstasevich@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node-dev --respawn --transpileOnly index.ts"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^1.0.0-pre.40",
+    "typescript": "^3.5.3"
+  }
+}
