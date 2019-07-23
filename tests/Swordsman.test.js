@@ -1,9 +1,14 @@
 import { Swordsman } from '../src/units/units/Swordsman';
 
 describe('Swordsman', () => {
-  test('Swordsman should have correct HP', () => {
-    const swordsman = new Swordsman();
+  const unit = new Swordsman();
 
-    expect(swordsman.healthBehavior.getMaxHealth()).toBe(500);
+  test('Swordsman should have correct HP', () => {
+    expect(unit.healthBehavior.getMaxHealth()).toBe(500);
+  });
+
+  test('Should have correct damage', () => {
+    expect(unit.attackBehavior.getMinDamage()).toBe(20);
+    expect(unit.attackBehavior.getMaxDamage()).toBe(30);
   });
 });

@@ -1,9 +1,14 @@
 import { Paladin } from '../src/units/units/Paladin';
 
 describe('Paladin', () => {
-  test('Paladin should have correct HP', () => {
-    const paladin = new Paladin();
+  const unit = new Paladin();
 
-    expect(paladin.healthBehavior.getMaxHealth()).toBe(700);
+  test('Paladin should have correct HP', () => {
+    expect(unit.healthBehavior.getMaxHealth()).toBe(700);
+  });
+
+  test('Should have correct damage', () => {
+    expect(unit.attackBehavior.getMinDamage()).toBe(40);
+    expect(unit.attackBehavior.getMaxDamage()).toBe(50);
   });
 });

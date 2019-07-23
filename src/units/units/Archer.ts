@@ -1,3 +1,8 @@
+import { AttackBehavior } from './../../game-core/behavior/AttackBehavior/AttackBehavior';
+import {
+  IWithAttackBehavior,
+  IAttackBehavior,
+} from './../../game-core/behavior/AttackBehavior/IAtackerBehavior';
 import { Unit } from '../../game-core/Unit/Unit';
 import {
   IWithHealthBehavior,
@@ -5,11 +10,13 @@ import {
 } from './../../game-core/behavior/HealthBehavior/IHealthBehavior';
 import { HealthBehavior } from './../../game-core/behavior/HealthBehavior/HealthBehavior';
 
-export class Archer extends Unit implements IWithHealthBehavior {
+export class Archer extends Unit implements IWithHealthBehavior, IWithAttackBehavior {
   healthBehavior: IHealthBehavior;
+  attackBehavior: IAttackBehavior;
 
   constructor() {
     super('Archer');
     this.healthBehavior = new HealthBehavior(300);
+    this.attackBehavior = new AttackBehavior(15, 20);
   }
 }
