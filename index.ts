@@ -1,3 +1,5 @@
-const a: number = 5;
+import { unitFactory } from './src/units/UnitFactory';
 
-console.log(a)
+const archer = unitFactory.createUnit('Archer');
+
+console.log(archer.getName());
