@@ -1,6 +1,13 @@
+import { Unit } from './../game-core/Unit/Unit';
+import { ArcherCaptain } from './ArcherCaptain';
+import { Archer } from './Archer';
+
 class Units {
-  getAllUnits(): Units[] {
-    return [];
+  getAllUnits(): Unit[] {
+    return [
+      new Archer(),
+      new ArcherCaptain()
+    ];
   }
 }
 
