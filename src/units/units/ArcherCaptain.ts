@@ -1,4 +1,4 @@
-import { Unit } from './../game-core/Unit/Unit';
+import { Unit } from '../../game-core/Unit/Unit';
 
 export class ArcherCaptain extends Unit {
   constructor() {

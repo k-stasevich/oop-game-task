@@ -1,4 +1,4 @@
-import { Unit } from './../game-core/Unit/Unit';
+import { Unit } from '../../game-core/Unit/Unit';
 
 export class Paladin extends Unit {
   constructor() {
