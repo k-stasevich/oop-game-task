@@ -48,7 +48,36 @@ describe('DamageService', () => {
     expect(target.healthBehavior.getCurrentHealth()).toBe(90);
   });
 
-  // Test damage spread somehow
+  test('Unit damage is correct when armor isn`t 0', () => {
+    class Attacker extends Unit implements IWithAttackBehavior {
+      attackBehavior: IAttackBehavior;
 
-  // Test damage includes armor
+      constructor() {
+        super('Attacker');
+        this.attackBehavior = new AttackBehavior(10, 10);
+      }
+    }
+
+    class Target extends Unit
+      implements IWithHealthBehavior, IWithArmorBehavior {
+      healthBehavior: IHealthBehavior;
+      armorBehavior: IArmorBehavior;
+
+      constructor() {
+        super('Target');
+        this.healthBehavior = new HealthBehavior(100);
+        this.armorBehavior = new ArmorBehavior(5);
+      }
+    }
+
+    const attacker = new Attacker();
+    const target = new Target();
+    const damageService = new DamageService();
+
+    damageService.attack(attacker, target);
+
+    expect(target.healthBehavior.getCurrentHealth()).toBe(95);
+  });
+
+  // Test damage spread
 });

@@ -11,10 +11,16 @@ export class DamageService {
    */
   attack(attacker: IWithAttackBehavior, target: ITarget): void {
     const targetHealth = target.healthBehavior.getCurrentHealth();
-    const damage = this.getDamage(
+    let damage = this.getDamage(
       attacker.attackBehavior.getMinDamage(),
       attacker.attackBehavior.getMaxDamage(),
     );
+
+    // armor
+    const armor = target.armorBehavior.getArmor();
+    damage = damage - armor;
+    if (damage < 0) damage = 0;
+
     const targetNewHealth = targetHealth - damage;
 
     target.healthBehavior.setCurrentHealth(targetNewHealth);
