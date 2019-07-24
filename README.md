@@ -3,7 +3,7 @@
 - ~~Test all units have HP according to requirements;~~
 - ~~Test all units have damage according to requirements;~~
 - ~~Test all units have Armor according to requirements;~~
-- Test all units have MP according to requirements;
+- ~~Test all units have MP according to requirements;~~
 - Test Archer has Shot that deal correct damage and cost correct mana;
 - Test Archer Captain has Shot that deal correct damage and cost correct mana;
 - Test Skeleton has Critical Strike passive skill with correct chance and damage multiplier;

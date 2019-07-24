@@ -15,4 +15,8 @@ describe('Paladin', () => {
   test('Should have correct armor', () => {
     expect(unit.armorBehavior.getArmor()).toBe(5);
   });
+
+  test('Should have correct MP', () => {
+    expect(unit.manaBehavior.getMaxMana()).toBe(300);
+  });
 });

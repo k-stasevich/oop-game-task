@@ -15,4 +15,8 @@ describe('Archer', () => {
   test('Should have correct armor', () => {
     expect(unit.armorBehavior.getArmor()).toBe(0);
   });
+
+  test('Should have correct MP', () => {
+    expect(unit.manaBehavior.getMaxMana()).toBe(100);
+  });
 });
