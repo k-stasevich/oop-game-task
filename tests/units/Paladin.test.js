@@ -1,4 +1,4 @@
-import { Paladin } from '../src/units/units/Paladin';
+import { Paladin } from '../../src/units/units/Paladin';
 
 describe('Paladin', () => {
   const unit = new Paladin();

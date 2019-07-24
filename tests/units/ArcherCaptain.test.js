@@ -1,4 +1,4 @@
-import { ArcherCaptain } from '../src/units/units/ArcherCaptain';
+import { ArcherCaptain } from '../../src/units/units/ArcherCaptain';
 
 describe('ArcherCaptain', () => {
   const unit = new ArcherCaptain();

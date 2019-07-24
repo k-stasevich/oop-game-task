@@ -1,4 +1,4 @@
-import { Swordsman } from '../src/units/units/Swordsman';
+import { Swordsman } from '../../src/units/units/Swordsman';
 
 describe('Swordsman', () => {
   const unit = new Swordsman();
