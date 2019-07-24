@@ -6,8 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "ts-node-dev --respawn index.ts",
-    "test": "jest",
-    "test-watch": "jest --watch"
+    "test": "jest --watch"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.5.5",

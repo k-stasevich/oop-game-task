@@ -1,7 +1,11 @@
-import { IAttackBehavior } from './IAttackBehavior';
+import { IAttackBehavior, IAttackModifier } from './IAttackBehavior';
 
 export class AttackBehavior implements IAttackBehavior {
-  constructor(public minDamage: number, public maxDamage: number) {}
+  constructor(public minDamage: number, public maxDamage: number) {
+    this.attackModifiers = [];
+  }
+
+  attackModifiers: IAttackModifier[];
 
   getMinDamage() {
     return this.minDamage;
@@ -15,5 +19,12 @@ export class AttackBehavior implements IAttackBehavior {
   }
   setMaxDamage(damage: number) {
     this.maxDamage = damage;
+  }
+
+  addAttackModifier(attackModifier: IAttackModifier): void {
+    this.attackModifiers.push(attackModifier);
+  }
+  getAttackModifiers(): IAttackModifier[] {
+    return this.attackModifiers;
   }
 }

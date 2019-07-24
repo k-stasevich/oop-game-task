@@ -8,7 +8,7 @@ import { AttackBehavior } from './../../game-core/behavior/AttackBehavior/Attack
 import {
   IAttackBehavior,
   IWithAttackBehavior,
-} from './../../game-core/behavior/AttackBehavior/IAtackerBehavior';
+} from './../../game-core/behavior/AttackBehavior/IAttackBehavior';
 import { Unit } from '../../game-core/Unit/Unit';
 import { HealthBehavior } from './../../game-core/behavior/HealthBehavior/HealthBehavior';
 import {
