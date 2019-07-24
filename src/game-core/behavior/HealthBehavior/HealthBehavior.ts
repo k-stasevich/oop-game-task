@@ -9,11 +9,17 @@ export class HealthBehavior implements IHealthBehavior {
     this.currentHealth = currentHealth ? currentHealth : maxHealth;
   }
 
+  isDead(): boolean {
+    return this.currentHealth <= 0;
+  }
+
   getCurrentHealth() {
     return this.currentHealth;
   }
   setCurrentHealth(health: number) {
-    this.currentHealth = health;
+    let newHealth = health;
+    if (health < 0) newHealth = 0;
+    this.currentHealth = newHealth;
   }
 
   getMaxHealth() {

@@ -11,5 +11,5 @@
 - Archer uses a skill on Swordsman - mana is decreased, damage is dealt to unit
 - Test that critical strike is working
 - ~~Test that armor is working (influence on received damage)~~
-- Test that unit received damage that decrease its HP to 0 is dead
+- ~~Test that unit received damage that decrease its HP to 0 is dead~~
 - Test that skill cannot be applied if not enough mana
