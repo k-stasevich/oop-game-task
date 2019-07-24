@@ -11,4 +11,8 @@ describe('Archer', () => {
     expect(unit.attackBehavior.getMinDamage()).toBe(15);
     expect(unit.attackBehavior.getMaxDamage()).toBe(20);
   });
+
+  test('Should have correct armor', () => {
+    expect(unit.armorBehavior.getArmor()).toBe(0);
+  });
 });

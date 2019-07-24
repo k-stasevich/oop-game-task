@@ -1,3 +1,8 @@
+import { ArmorBehavior } from './../../game-core/behavior/ArmorBehavior/ArmorBehavior';
+import {
+  IWithArmorBehavior,
+  IArmorBehavior,
+} from './../../game-core/behavior/ArmorBehavior/IArmorBehavior';
 import { AttackBehavior } from './../../game-core/behavior/AttackBehavior/AttackBehavior';
 import {
   IWithAttackBehavior,
@@ -8,13 +13,16 @@ import { IWithHealthBehavior } from './../../game-core/behavior/HealthBehavior/I
 import { HealthBehavior } from './../../game-core/behavior/HealthBehavior/HealthBehavior';
 import { IHealthBehavior } from '../../game-core/behavior/HealthBehavior/IHealthBehavior';
 
-export class Skeleton extends Unit implements IWithHealthBehavior, IWithAttackBehavior {
+export class Skeleton extends Unit
+  implements IWithHealthBehavior, IWithAttackBehavior, IWithArmorBehavior {
   healthBehavior: IHealthBehavior;
   attackBehavior: IAttackBehavior;
+  armorBehavior: IArmorBehavior;
 
   constructor() {
     super('Skeleton');
     this.healthBehavior = new HealthBehavior(180);
     this.attackBehavior = new AttackBehavior(5, 8);
+    this.armorBehavior = new ArmorBehavior(1);
   }
 }

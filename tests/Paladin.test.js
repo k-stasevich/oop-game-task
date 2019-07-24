@@ -11,4 +11,8 @@ describe('Paladin', () => {
     expect(unit.attackBehavior.getMinDamage()).toBe(40);
     expect(unit.attackBehavior.getMaxDamage()).toBe(50);
   });
+
+  test('Should have correct armor', () => {
+    expect(unit.armorBehavior.getArmor()).toBe(5);
+  });
 });

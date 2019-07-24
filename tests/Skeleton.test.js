@@ -11,4 +11,8 @@ describe('Skeleton', () => {
     expect(unit.attackBehavior.getMinDamage()).toBe(5);
     expect(unit.attackBehavior.getMaxDamage()).toBe(8);
   });
+
+  test('Should have correct armor', () => {
+    expect(unit.armorBehavior.getArmor()).toBe(1);
+  });
 });

@@ -11,4 +11,8 @@ describe('Swordsman', () => {
     expect(unit.attackBehavior.getMinDamage()).toBe(20);
     expect(unit.attackBehavior.getMaxDamage()).toBe(30);
   });
+
+  test('Should have correct armor', () => {
+    expect(unit.armorBehavior.getArmor()).toBe(2);
+  });
 });
