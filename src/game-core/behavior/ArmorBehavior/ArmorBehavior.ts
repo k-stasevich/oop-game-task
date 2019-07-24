@@ -6,4 +6,7 @@ export class ArmorBehavior implements IArmorBehavior {
   getArmor(): number {
     return this.armor;
   }
+  setArmor(armor: number): void {
+    this.armor = armor;
+  }
 }

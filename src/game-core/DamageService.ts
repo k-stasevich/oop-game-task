@@ -1,5 +1,5 @@
 import { RandomHelper } from '../helpers/RandomHelper';
-import { IWithAttackBehavior } from './behavior/AttackBehavior/IAtackerBehavior';
+import { IWithAttackBehavior } from './behavior/AttackBehavior/IAttackBehavior';
 import { IWithHealthBehavior } from './behavior/HealthBehavior/IHealthBehavior';
 import { IWithArmorBehavior } from './behavior/ArmorBehavior/IArmorBehavior';
 
@@ -16,7 +16,7 @@ export class DamageService {
       attacker.attackBehavior.getMaxDamage(),
     );
 
-    // armor
+    // armor influce
     const armor = target.armorBehavior.getArmor();
     damage = damage - armor;
     if (damage < 0) damage = 0;

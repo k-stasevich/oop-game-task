@@ -7,5 +7,8 @@ export interface IAttackBehavior {
   maxDamage: number;
 
   getMinDamage(): number;
+  setMinDamage(damage: number): void;
+
   getMaxDamage(): number;
+  setMaxDamage(damage: number): void;
 }

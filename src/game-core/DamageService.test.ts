@@ -6,7 +6,7 @@ import { Unit } from './Unit/Unit';
 import {
   IWithAttackBehavior,
   IAttackBehavior,
-} from './behavior/AttackBehavior/IAtackerBehavior';
+} from './behavior/AttackBehavior/IAttackBehavior';
 import {
   IHealthBehavior,
   IWithHealthBehavior,
@@ -17,30 +17,36 @@ import {
 } from './behavior/ArmorBehavior/IArmorBehavior';
 
 describe('DamageService', () => {
-  test('Unit damage is correct when no armor', () => {
-    class Attacker extends Unit implements IWithAttackBehavior {
-      attackBehavior: IAttackBehavior;
+  class Attacker extends Unit implements IWithAttackBehavior {
+    attackBehavior: IAttackBehavior;
 
-      constructor() {
-        super('Attacker');
-        this.attackBehavior = new AttackBehavior(10, 10);
-      }
+    constructor() {
+      super('Attacker');
+      this.attackBehavior = new AttackBehavior(10, 10);
     }
+  }
 
-    class Target extends Unit
-      implements IWithHealthBehavior, IWithArmorBehavior {
-      healthBehavior: IHealthBehavior;
-      armorBehavior: IArmorBehavior;
+  class Target extends Unit implements IWithHealthBehavior, IWithArmorBehavior {
+    healthBehavior: IHealthBehavior;
+    armorBehavior: IArmorBehavior;
 
-      constructor() {
-        super('Target');
-        this.healthBehavior = new HealthBehavior(100);
-        this.armorBehavior = new ArmorBehavior(0);
-      }
+    constructor() {
+      super('Target');
+      this.healthBehavior = new HealthBehavior(100);
+      this.armorBehavior = new ArmorBehavior(0);
     }
+  }
 
+  test('Should decrease HP of unit when it is attacked. No armor', () => {
     const attacker = new Attacker();
+    attacker.attackBehavior.setMinDamage(10);
+    attacker.attackBehavior.setMaxDamage(10);
+
     const target = new Target();
+    target.armorBehavior.setArmor(0);
+    target.healthBehavior.setMaxHealth(100);
+    target.healthBehavior.setCurrentHealth(100);
+
     const damageService = new DamageService();
 
     damageService.attack(attacker, target);
@@ -48,30 +54,16 @@ describe('DamageService', () => {
     expect(target.healthBehavior.getCurrentHealth()).toBe(90);
   });
 
-  test('Unit damage is correct when armor isn`t 0', () => {
-    class Attacker extends Unit implements IWithAttackBehavior {
-      attackBehavior: IAttackBehavior;
-
-      constructor() {
-        super('Attacker');
-        this.attackBehavior = new AttackBehavior(10, 10);
-      }
-    }
-
-    class Target extends Unit
-      implements IWithHealthBehavior, IWithArmorBehavior {
-      healthBehavior: IHealthBehavior;
-      armorBehavior: IArmorBehavior;
-
-      constructor() {
-        super('Target');
-        this.healthBehavior = new HealthBehavior(100);
-        this.armorBehavior = new ArmorBehavior(5);
-      }
-    }
-
+  test('Should decrease HP of unit when it is attacked. With armor', () => {
     const attacker = new Attacker();
+    attacker.attackBehavior.setMinDamage(10);
+    attacker.attackBehavior.setMaxDamage(10);
+
     const target = new Target();
+    target.armorBehavior.setArmor(5);
+    target.healthBehavior.setMaxHealth(100);
+    target.healthBehavior.setCurrentHealth(100);
+
     const damageService = new DamageService();
 
     damageService.attack(attacker, target);
@@ -79,5 +71,37 @@ describe('DamageService', () => {
     expect(target.healthBehavior.getCurrentHealth()).toBe(95);
   });
 
-  // Test damage spread
+  test('Should not change HP of unit if target`s armor is equal to attacker`s damage', () => {
+    const attacker = new Attacker();
+    attacker.attackBehavior.setMinDamage(10);
+    attacker.attackBehavior.setMaxDamage(10);
+
+    const target = new Target();
+    target.armorBehavior.setArmor(10);
+    target.healthBehavior.setMaxHealth(100);
+    target.healthBehavior.setCurrentHealth(50);
+
+    const damageService = new DamageService();
+
+    damageService.attack(attacker, target);
+
+    expect(target.healthBehavior.getCurrentHealth()).toBe(50);
+  });
+
+  test('Should not change HP of unit if target`s armor more than to attacker`s damage', () => {
+    const attacker = new Attacker();
+    attacker.attackBehavior.setMinDamage(10);
+    attacker.attackBehavior.setMaxDamage(10);
+
+    const target = new Target();
+    target.armorBehavior.setArmor(100);
+    target.healthBehavior.setMaxHealth(100);
+    target.healthBehavior.setCurrentHealth(50);
+
+    const damageService = new DamageService();
+
+    damageService.attack(attacker, target);
+
+    expect(target.healthBehavior.getCurrentHealth()).toBe(50);
+  });
 });
