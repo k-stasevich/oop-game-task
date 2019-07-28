@@ -1,4 +1,4 @@
-import { Unit } from '../game-core/Unit/Unit';
+import { Unit } from '../Unit/Unit';
 import { Archer } from './units/Archer';
 import { ArcherCaptain } from './units/ArcherCaptain';
 import { Paladin } from './units/Paladin';

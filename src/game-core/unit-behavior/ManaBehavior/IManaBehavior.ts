@@ -9,6 +9,6 @@ export interface IManaBehavior {
   getCurrentMana(): number;
   setCurrentMana(mana: number): void;
 
-  getCurrentMana(): number;
-  setCurrentMana(mana: number): void;
+  getMaxMana(): number;
+  setMaxMana(mana: number): void;
 }

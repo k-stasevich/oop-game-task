@@ -1,4 +1,4 @@
-import { unitFactory } from './src/units/UnitFactory';
+import { unitFactory } from './src/game-core/units/UnitFactory';
 
 const archer = unitFactory.createUnit('Archer');
 

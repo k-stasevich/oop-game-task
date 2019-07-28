@@ -1,4 +1,4 @@
-import { Paladin } from '../../src/units/units/Paladin';
+import { Paladin } from '../../src/game-core/units/units';
 
 describe('Paladin', () => {
   const unit = new Paladin();

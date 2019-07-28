@@ -1,6 +1,6 @@
 import { CriticalStrikeAttackModifier } from './CriticalStrikeAttackModifier';
 import { ISkill } from '../../Skill';
-import { IWithAttackBehavior } from '../../../behavior/AttackBehavior/IAttackBehavior';
+import { IWithAttackBehavior } from '../../../unit-behavior/AttackBehavior/IAttackBehavior';
 
 export class CriticalStrikeSkill implements ISkill {
   constructor(chance: number, multipler: number, unit: IWithAttackBehavior) {

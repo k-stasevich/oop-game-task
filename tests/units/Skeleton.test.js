@@ -1,4 +1,4 @@
-import { Skeleton } from '../../src/units/units/Skeleton';
+import { Skeleton } from '../../src/game-core/units/units';
 
 describe('Skeleton', () => {
   const unit = new Skeleton();

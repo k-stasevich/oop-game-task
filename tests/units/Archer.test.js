@@ -1,4 +1,4 @@
-import { Archer } from '../../src/units/units/Archer';
+import { Archer } from '../../src/game-core/units/units';
 
 describe('Archer', () => {
   const unit = new Archer();

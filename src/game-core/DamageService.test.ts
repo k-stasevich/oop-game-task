@@ -1,39 +1,28 @@
-import { ArmorBehavior } from './behavior/ArmorBehavior/ArmorBehavior';
-import { HealthBehavior } from './behavior/HealthBehavior/HealthBehavior';
-import { AttackBehavior } from './behavior/AttackBehavior/AttackBehavior';
+import { AttackBehavior } from './unit-behavior/AttackBehavior/AttackBehavior';
 import { DamageService } from './DamageService';
 import { Unit } from './Unit/Unit';
 import {
   IWithAttackBehavior,
   IAttackBehavior,
-} from './behavior/AttackBehavior/IAttackBehavior';
+} from './unit-behavior/AttackBehavior/IAttackBehavior';
 import {
   IHealthBehavior,
   IWithHealthBehavior,
-} from './behavior/HealthBehavior/IHealthBehavior';
-import {
-  IWithArmorBehavior,
-  IArmorBehavior,
-} from './behavior/ArmorBehavior/IArmorBehavior';
+} from './unit-behavior/HealthBehavior/IHealthBehavior';
 
 describe('DamageService', () => {
   class Attacker extends Unit implements IWithAttackBehavior {
     attackBehavior: IAttackBehavior;
 
     constructor() {
-      super('Attacker');
+      super('Attacker', 100);
       this.attackBehavior = new AttackBehavior(10, 10);
     }
   }
 
-  class Target extends Unit implements IWithHealthBehavior, IWithArmorBehavior {
-    healthBehavior: IHealthBehavior;
-    armorBehavior: IArmorBehavior;
-
+  class Target extends Unit {
     constructor() {
-      super('Target');
-      this.healthBehavior = new HealthBehavior(100);
-      this.armorBehavior = new ArmorBehavior(0);
+      super('Target', 100, 0);
     }
   }
 

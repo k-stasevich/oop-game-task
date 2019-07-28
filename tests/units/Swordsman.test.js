@@ -1,4 +1,4 @@
-import { Swordsman } from '../../src/units/units/Swordsman';
+import { Swordsman } from '../../src/game-core/units/units';
 
 describe('Swordsman', () => {
   const unit = new Swordsman();

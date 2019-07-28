@@ -3,7 +3,7 @@ import { IDamageTarget } from './../../../DamageService';
 import {
   IAttackModifier,
   IWithAttackBehavior,
-} from './../../../behavior/AttackBehavior/IAttackBehavior';
+} from './../../../unit-behavior/AttackBehavior/IAttackBehavior';
 
 export class CriticalStrikeAttackModifier implements IAttackModifier {
   constructor(private chance: number, private multipler: number) {}

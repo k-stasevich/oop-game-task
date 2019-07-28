@@ -1,7 +1,7 @@
 import { RandomHelper } from '../helpers/RandomHelper';
-import { IWithAttackBehavior } from './behavior/AttackBehavior/IAttackBehavior';
-import { IWithHealthBehavior } from './behavior/HealthBehavior/IHealthBehavior';
-import { IWithArmorBehavior } from './behavior/ArmorBehavior/IArmorBehavior';
+import { IWithAttackBehavior } from './unit-behavior/AttackBehavior/IAttackBehavior';
+import { IWithHealthBehavior } from './unit-behavior/HealthBehavior/IHealthBehavior';
+import { IWithArmorBehavior } from './unit-behavior/ArmorBehavior/IArmorBehavior';
 
 /**
  * Interface of unit that can receive damage (in other words - unit that can be attacked)
