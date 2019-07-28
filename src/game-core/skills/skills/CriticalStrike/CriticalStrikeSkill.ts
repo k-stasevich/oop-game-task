@@ -1,17 +1,24 @@
-import { CriticalStrikeAttackModifier } from './CriticalStrikeAttackModifier';
+import { IUnit } from './../../../Unit/IUnit';
 import { ISkill } from '../../Skill';
-import { IWithAttackBehavior } from '../../../unit-behavior/AttackBehavior/IAttackBehavior';
+import { IWithAttackBehavior } from './../../../unit-behavior/AttackBehavior/IAttackBehavior';
+import { CriticalStrikeAttackModifier } from './CriticalStrikeAttackModifier';
+import { IWithSkillsBehavior } from '../../../unit-behavior/SkillsBehavior/ISkillsBehavior';
+
+interface IUnitWithCriticalStrike extends IUnit, IWithAttackBehavior, IWithSkillsBehavior {}
 
 export class CriticalStrikeSkill implements ISkill {
-  constructor(chance: number, multipler: number, unit: IWithAttackBehavior) {
+  constructor(chance: number, multipler: number, unit: IUnitWithCriticalStrike) {
     this.chance = chance;
     this.multiplier = multipler;
+    this.unit = unit;
+  }
 
+  init(): void {
     const criticalStrikeAttackModifier = new CriticalStrikeAttackModifier(
       this.chance,
       this.multiplier,
     );
-    unit.attackBehavior.addAttackModifier(criticalStrikeAttackModifier);
+    this.unit.attackBehavior.addAttackModifier(criticalStrikeAttackModifier);
   }
 
   getName(): string {
@@ -28,4 +35,5 @@ export class CriticalStrikeSkill implements ISkill {
 
   private chance: number;
   private multiplier: number;
+  private unit: IWithAttackBehavior;
 }

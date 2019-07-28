@@ -5,10 +5,6 @@ import {
   IWithAttackBehavior,
   IAttackBehavior,
 } from './unit-behavior/AttackBehavior/IAttackBehavior';
-import {
-  IHealthBehavior,
-  IWithHealthBehavior,
-} from './unit-behavior/HealthBehavior/IHealthBehavior';
 
 describe('DamageService', () => {
   class Attacker extends Unit implements IWithAttackBehavior {
