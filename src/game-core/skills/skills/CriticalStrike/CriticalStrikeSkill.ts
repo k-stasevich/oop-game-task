@@ -33,6 +33,14 @@ export class CriticalStrikeSkill implements ISkill {
     return true;
   }
 
+  getChance() {
+    return this.chance;
+  }
+
+  getMultiplier() {
+    return this.multiplier;
+  }
+
   private chance: number;
   private multiplier: number;
   private unit: IWithAttackBehavior;

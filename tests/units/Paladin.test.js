@@ -1,4 +1,5 @@
 import { Paladin } from '../../src/game-core/units/units';
+import {CriticalStrikeSkill} from '../../src/game-core/skills/skills/CriticalStrike/CriticalStrikeSkill';
 
 describe('Paladin', () => {
   const unit = new Paladin();
@@ -18,5 +19,17 @@ describe('Paladin', () => {
 
   test('Should have correct MP', () => {
     expect(unit.manaBehavior.getMaxMana()).toBe(300);
+  });
+
+  test('Should have Critical Strike skill with correct parameters', () => {
+    const skills = unit.skillsBehavior.getSkills();
+
+    const criticalStrike = skills.find(skill => {
+      return skill instanceof CriticalStrikeSkill;
+    });
+
+    expect(!!criticalStrike).toBe(true);
+    expect(criticalStrike.getChance()).toBe(30);
+    expect(criticalStrike.getMultiplier()).toBe(3);
   });
 });
