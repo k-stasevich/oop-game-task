@@ -1,13 +1,14 @@
 import { IUnit } from './../../../Unit/IUnit';
-import { ISkill } from '../../Skill';
+import { Skill } from '../../Skill';
 import { IWithAttackBehavior } from './../../../unit-behavior/AttackBehavior/IAttackBehavior';
 import { CriticalStrikeAttackModifier } from './CriticalStrikeAttackModifier';
 import { IWithSkillsBehavior } from '../../../unit-behavior/SkillsBehavior/ISkillsBehavior';
 
 interface IUnitWithCriticalStrike extends IUnit, IWithAttackBehavior, IWithSkillsBehavior {}
 
-export class CriticalStrikeSkill implements ISkill {
+export class CriticalStrikeSkill extends Skill {
   constructor(chance: number, multipler: number, unit: IUnitWithCriticalStrike) {
+    super();
     this.chance = chance;
     this.multiplier = multipler;
     this.unit = unit;

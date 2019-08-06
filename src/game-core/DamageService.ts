@@ -6,14 +6,9 @@ import { IWithArmorBehavior } from './unit-behavior/ArmorBehavior/IArmorBehavior
 /**
  * Interface of unit that can receive damage (in other words - unit that can be attacked)
  */
-export interface IDamageTarget
-  extends IWithHealthBehavior,
-    IWithArmorBehavior {}
+export interface IDamageTarget extends IWithHealthBehavior, IWithArmorBehavior {}
 
 export class DamageService {
-  /**
-   * @returns {number} - target health after attack
-   */
   attack(attacker: IWithAttackBehavior, target: IDamageTarget): void {
     // getting damage from spread;
     let damage = this.getDamage(
